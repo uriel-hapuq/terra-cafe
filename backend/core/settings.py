@@ -28,7 +28,7 @@ DEBUG = os.environ.get('DEBUG', 'False') ==  'True'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['terracafe-backend.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -63,7 +63,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173", # Porta padrão do Vite (ajuste se usar outra)
+     'https://terra-cafe-kappa.vercel.app',
 ]
 
 ROOT_URLCONF = 'core.urls'
