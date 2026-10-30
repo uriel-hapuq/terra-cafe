@@ -65,7 +65,7 @@ function Order(){
                     </label>
                     <input {...register("nome", {
                         required: 'Informe seu nome'
-                    })} type="text" id='order-name' placeholder='Seu nome'/>
+                    })} type="text" id='order-name' placeholder='Ex.: Sr. Fulano da Silva'/>
                     {
        
                             <span className={`message ${errors.nome ? 'visible' : ''}`}>
@@ -81,7 +81,7 @@ function Order(){
                     </label>
                     <input {...register("telefone", {
                         required: 'Informe seu telefone'
-                    })} type="text" id='phone-number' placeholder='Seu número de telefone'/>
+                    })} type="text" id='phone-number' placeholder='Ex. : 73912345678 '/>
                     {
                  
                             <span className={`message ${errors.telefone ? 'visible' : ''}`}>
@@ -97,7 +97,7 @@ function Order(){
                     </label>
                     <input {...register("produto", {
                         required:'Informe seu pedido'
-                    })} type="text" id='order-request' placeholder='Peça seu bolo por encomenda'/>
+                    })} type="text" id='order-request' placeholder='Ex. : Bolo de chocolate com recheio de uva e cobertura de caramelo'/>
                     {
                             <span className={`message ${errors.produto ? 'visible' : ''}`}>
                                 {errors?.produto?.message}
