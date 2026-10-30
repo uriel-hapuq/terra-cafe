@@ -1,6 +1,6 @@
 import './Order.css' 
 import { useForm } from "react-hook-form"
-import { orderFormSchema, type OrderFormSchema } from "../Zod/auth-schema";
+import { orderFormSchema, type OrderFormSchema } from "../Schema/auth-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {toast} from 'react-toastify';
 
@@ -17,7 +17,7 @@ function Order(){
 
     const onSubmit = async (payload: OrderFormSchema) => {
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/encomenda/", {
+            const response = await fetch("https://terracafe-backend.onrender.com/api/encomenda/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
