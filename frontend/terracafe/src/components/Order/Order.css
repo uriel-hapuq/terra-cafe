@@ -1,0 +1,79 @@
+.order-section {
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  border: 1px;
+  border-color: #4a2c1c;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.order-field {
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+}
+
+.order-field label {
+  font-weight: bold;
+  color: var(--primary-brown);
+  margin-bottom: 10px;
+}
+
+.order-field input {
+  padding: 0.8rem;
+  border: 2px solid var(--primary-brown);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.order-field input:focus {
+  border-color: #8b5e3c;
+}
+.message {
+  font-size: 0.8rem;
+  color: #a63a2b;
+  margin-top: 0.2rem;
+  display: block;
+  visibility: hidden;
+
+  opacity: 0;
+  transform: translateY(-4px);
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
+}
+
+.message.visible {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 1.5rem; /* Altura suficiente para mostrar a mensagem */
+}
+
+.order-button {
+  padding: 1rem;
+  background-color: var(--primary-brown);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.order-button:hover {
+  background-color: #4a2c1c;
+}

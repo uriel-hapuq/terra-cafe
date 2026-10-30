@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+  ol.breadcrumbs {
+    background: #e8d5bd !important;
+    color: #4a2c1c !important;
+  }
+  ol.breadcrumbs a {
+    color: #7a4a2b !important;
+  }
+  ol.breadcrumbs a:hover {
+    color: #4a2c1c !important;
+  }
+</style>
+{% endblock %}

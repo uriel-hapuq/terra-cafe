@@ -1,0 +1,49 @@
+from .models import Encomenda
+from rest_framework.serializers import ModelSerializer, ValidationError, DateField
+from django.utils import timezone
+from datetime import timedelta
+
+class EncomendaSerializer(ModelSerializer):
+    data_entrega = DateField(default=timezone.localdate)
+    class Meta:
+        fields = '__all__'
+        model = Encomenda
+        read_only_fields = ['data_recebimento'] #deve ser definido somente na atualização
+
+    #necessario para limitar as 5 encomendas (fica aqui pra cobrir o server side (sem o django admin))
+    def validate(self, data):
+        campos_validos = set(self.fields.keys())
+        campos_enviados = set(self.initial_data.keys())
+        campos_extras = campos_enviados - campos_validos
+
+        if campos_extras:
+            raise ValidationError({
+                campo: "Campo não permitido." for campo in campos_extras
+            })
+
+        # --- PROTEÇÃO PARA O PATCH / VALOR NULO ---
+        if 'data_entrega' not in data or data.get('data_entrega') is None:
+            if self.instance:
+                # Se for atualização e não mandou a data, mantém a que já está salva no banco
+                data['data_entrega'] = self.instance.data_entrega
+            else:
+                # Se for criação nova e não mandou, define a de hoje por defeito
+                data['data_entrega'] = timezone.localdate()
+        # ------------------------------------------
+
+        data_entrega = data.get('data_entrega')
+
+        # Enquanto o dia tiver 5 ou mais encomendas, avança 1 dia
+        while True:
+            encomendas_no_dia = Encomenda.objects.filter(data_entrega=data_entrega)
+            if self.instance:
+                encomendas_no_dia = encomendas_no_dia.exclude(pk=self.instance.pk)
+
+            if encomendas_no_dia.count() < 5:
+                break
+
+            data_entrega += timedelta(days=1)
+
+        # Atualiza a data validada para o primeiro dia livre encontrado
+        data['data_entrega'] = data_entrega
+        return data
