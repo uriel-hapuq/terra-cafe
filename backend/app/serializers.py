@@ -21,19 +21,14 @@ class EncomendaSerializer(ModelSerializer):
                 campo: "Campo não permitido." for campo in campos_extras
             })
 
-        # --- PROTEÇÃO PARA O PATCH / VALOR NULO ---
         if 'data_entrega' not in data or data.get('data_entrega') is None:
             if self.instance:
-                # Se for atualização e não mandou a data, mantém a que já está salva no banco
                 data['data_entrega'] = self.instance.data_entrega
             else:
-                # Se for criação nova e não mandou, define a de hoje por defeito
                 data['data_entrega'] = timezone.localdate()
-        # ------------------------------------------
 
         data_entrega = data.get('data_entrega')
 
-        # Enquanto o dia tiver 5 ou mais encomendas, avança 1 dia
         while True:
             encomendas_no_dia = Encomenda.objects.filter(data_entrega=data_entrega)
             if self.instance:
@@ -44,6 +39,5 @@ class EncomendaSerializer(ModelSerializer):
 
             data_entrega += timedelta(days=1)
 
-        # Atualiza a data validada para o primeiro dia livre encontrado
         data['data_entrega'] = data_entrega
         return data

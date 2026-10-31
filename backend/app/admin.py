@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.models import User, Group
 from admin_interface.models import Theme
 from .models import Encomenda
+from django.utils.html import format_html
+from urllib.parse import quote
 
 admin.site.unregister(User)
 admin.site.unregister(Group)
@@ -14,3 +16,4 @@ class EncomendaAdmin(admin.ModelAdmin):
     search_fields = ('nome', 'produto', 'telefone')
     readonly_fields = ('data_entrega', 'data_recebimento')
 
+    

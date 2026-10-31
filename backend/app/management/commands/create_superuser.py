@@ -4,15 +4,13 @@ import os
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
-        username = os.environ.get('ADMIN_USERNAME', 'admin')
+        username = os.environ.get('ADMIN_USERNAME', 'marta123')
         password = os.environ.get('ADMIN_PASSWORD', 'admin123')
-        email = os.environ.get('ADMIN_EMAIL', 'admin@terracafe.com')
 
         if not User.objects.filter(username=username).exists():
             User.objects.create_superuser(
                 username=username,
                 password=password,
-                email=email
             )
             self.stdout.write('Superuser criado!')
         else:
