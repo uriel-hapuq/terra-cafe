@@ -1,7 +1,6 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils import timezone
-from django.core.exceptions import ValidationError as DjangoValidationError
 
 class Encomenda(models.Model):
     STATUS_CHOICES = [
@@ -32,5 +31,12 @@ class Encomenda(models.Model):
 
     def __str__(self):
         return f"Encomenda de {self.nome} ({self.produto})"
+
+    def save(self, *args, **kwargs):
+        if self.pk:
+            anterior = Encomenda.objects.get(pk=self.pk)
+            if anterior.status != 'entregue' and self.status == 'entregue':
+                self.data_entrega = timezone.localdate()
+        super().save(*args, **kwargs)
 
 
