@@ -36,7 +36,7 @@ Sistema de gerenciamento de encomendas para o Café do Bairro da Dona Marta. Per
 ## INSTRUÇÕES PARA PREENCHER O ARQUIVO .ENV PARA RODAR LOCALMENTE
 
 ### Backend (pasta `backend`)
-    Não precisa criar um `.env` no backend para rodar o projeto. Quando você executa `python manage.py create_superuser`, um superusuário padrão já é criado automaticamente com as mesmas credenciais da aplicação em produção no Render:
+### Não precisa criar um `.env` no backend para rodar o projeto. Quando você executa `python manage.py create_superuser`, um superusuário padrão já é criado automaticamente com as mesmas credenciais da aplicação em produção no Render:
 
     - Usuário: `marta123`
     - Senha: `terracafe`
