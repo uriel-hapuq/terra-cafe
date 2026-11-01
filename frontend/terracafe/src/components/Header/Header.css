@@ -20,6 +20,13 @@
   font-weight: bold;
 }
 
+.logo-container{
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+
 .header-hamburguer {
   background: none;
   border: none;

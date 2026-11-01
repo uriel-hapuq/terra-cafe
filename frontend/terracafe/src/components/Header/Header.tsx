@@ -1,5 +1,7 @@
 import './Header.css'
 import { useState } from 'react'
+import { SiCoffeescript } from "react-icons/si";
+
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -9,7 +11,12 @@ function Header() {
   }
     return (
         <header className="header">
-          <span className="header-logo">TerraCafe</span>
+
+          <div className="logo-container">
+            <SiCoffeescript size={30} color="var(--bg-cream)"/>
+            <span className="header-logo">TerraCafe</span>
+          </div>
+          
           <button
             className="header-hamburguer"
             onClick={toggleMenu}
