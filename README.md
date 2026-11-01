@@ -35,12 +35,18 @@ Sistema de gerenciamento de encomendas para o Café do Bairro da Dona Marta. Per
 
 ## INSTRUÇÕES PARA PREENCHER O ARQUIVO .ENV PARA RODAR LOCALMENTE
 
-### Backend (pasta `backend`)
-  #### não precisa criar um .env no backend mas se quiserpersonalizar... já tem um super user criado quando roda o python manage.py create_superuser: 
+## Backend (pasta `backend`)
+    Não precisa criar um `.env` no backend para rodar o projeto. Quando você executa `python manage.py create_superuser`, um superusuário padrão já é criado automaticamente com as mesmas credenciais da aplicação em produção no Render:
+
+    - Usuário: `marta123`
+    - Senha: `terracafe`
+
+### Se quiser personalizar, crie um arquivo `.env` na pasta `backend` com:
     SECRET_KEY=sua-chave-secreta
     DEBUG=True
     ADMIN_USERNAME=usuario123
     ADMIN_PASSWORD=usuario123
+
 ### Frontend (pasta `frontend/terracafe`)
     VITE_API_URL=http://127.0.0.1:8000
 
