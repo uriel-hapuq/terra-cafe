@@ -5,7 +5,7 @@ import os
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         username = os.environ.get('ADMIN_USERNAME', 'marta123')
-        password = os.environ.get('ADMIN_PASSWORD', 'admin123')
+        password = os.environ.get('ADMIN_PASSWORD', 'terracafe')
 
         if not User.objects.filter(username=username).exists():
             User.objects.create_superuser(
