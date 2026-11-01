@@ -12,15 +12,6 @@ class EncomendaSerializer(ModelSerializer):
 
     #necessario para limitar as 5 encomendas (fica aqui pra cobrir o server side (sem o django admin))
     def validate(self, data):
-        campos_validos = set(self.fields.keys())
-        campos_enviados = set(self.initial_data.keys())
-        campos_extras = campos_enviados - campos_validos
-
-        if campos_extras:
-            raise ValidationError({
-                campo: "Campo não permitido." for campo in campos_extras
-            })
-
         if 'data_entrega' not in data or data.get('data_entrega') is None:
             if self.instance:
                 data['data_entrega'] = self.instance.data_entrega
