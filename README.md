@@ -33,7 +33,7 @@ Sistema de gerenciamento de encomendas para o Café do Bairro da Dona Marta. Per
     npm install --legacy-peer-deps
     npm run dev
 
-## INSTRUÇÕES PARA PREENCHER O ARQUIVO .ENV
+## INSTRUÇÕES PARA PREENCHER O ARQUIVO .ENV PARA RODAR LOCALMENTE
 
 ### Backend (pasta `backend`)
   #### não precisa criar um .env no backend mas se quiserpersonalizar... já tem um super user criado quando roda o python manage.py create_superuser: 
