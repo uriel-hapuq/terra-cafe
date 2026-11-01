@@ -61,10 +61,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.locale.LocaleMiddleware'
 ]
 
 CORS_ALLOWED_ORIGINS = [
-     'https://terra-cafe-kappa.vercel.app',
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'https://terra-cafe-kappa.vercel.app',
 ]
 
 ROOT_URLCONF = 'core.urls'
