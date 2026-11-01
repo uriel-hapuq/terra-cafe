@@ -20,7 +20,7 @@ class Encomenda(models.Model):
             message="O número de telefone deve conter entre 9 e 15 dígitos." #regex para numero br
         )
     ])
-    produto = models.CharField(max_length=50)
+    produto = models.CharField(max_length=100)
     data_recebimento = models.DateField(auto_now_add=True)
     data_entrega = models.DateField(default=timezone.localdate)
     status = models.CharField(
