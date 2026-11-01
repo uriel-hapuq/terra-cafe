@@ -15,9 +15,11 @@ function Order(){
         resolver: zodResolver(orderFormSchema)
     });
 
+    const API_URL = import.meta.env.VITE_API_URL
+
     const onSubmit = async (payload: OrderFormSchema) => {
         try {
-            const response = await fetch("https://terracafe-backend.onrender.com/api/encomenda/", {
+            const response = await fetch(`${API_URL}/api/encomenda/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -46,7 +48,6 @@ function Order(){
             
             }
             reset();
-            console.log("Encomenda enviada com sucesso:", data);
         } catch (error) {
             toast.error("Sem conexão com o servidor. Que tal chamar a Dona Marta no WhatsApp?", {
                     icon: () => <span>📱</span>,
