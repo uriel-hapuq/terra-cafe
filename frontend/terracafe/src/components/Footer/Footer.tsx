@@ -1,17 +1,17 @@
-import { FaWhatsapp, FaInstagram, FaRegEnvelope } from 'react-icons/fa6'
-import './Footer.css'
+import { FaWhatsapp, FaInstagram, FaRegEnvelope } from "react-icons/fa6";
+import "./Footer.css";
 
 function Footer() {
   return (
     <footer id="footer-section" className="footer-section">
       <div className="footer-container">
         <h3>Contatos</h3>
-        
+
         <div className="contact-list">
-          <a 
-            href="https://wa.me/5573982385493" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href="https://wa.me/5573982385493"
+            target="_blank"
+            rel="noopener noreferrer"
             className="contact-card"
           >
             <div className="icon whatsapp">
@@ -23,10 +23,10 @@ function Footer() {
             </div>
           </a>
 
-          <a 
-            href="https://www.instagram.com/urielhapuq/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href="https://www.instagram.com/urielhapuq/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="contact-card"
           >
             <div className="icon instagram">
@@ -38,10 +38,7 @@ function Footer() {
             </div>
           </a>
 
-          <a 
-            href="mailto:urihapuque11@gmail.com" 
-            className="contact-card"
-          >
+          <a href="mailto:urihapuque11@gmail.com" className="contact-card">
             <div className="icon email">
               <FaRegEnvelope />
             </div>
@@ -57,7 +54,7 @@ function Footer() {
 
       <div className="schedule-section">
         <h3>Horário de Funcionamento</h3>
-        
+
         <ul className="schedule-list">
           <li className="schedule-item">
             <span>Segunda - Sexta</span>
@@ -73,9 +70,8 @@ function Footer() {
           </li>
         </ul>
       </div>
-
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
